@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Sockets;
+using System.Windows.Threading;
+using Gertui_AsyncServerLib;
 
 namespace Gertui_AsyncTimeServer
 {
@@ -22,42 +24,46 @@ namespace Gertui_AsyncTimeServer
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        AsyncSocketServer mServer;
+        DispatcherTimer timer;
         public MainWindow()
         {
-             mServer;
-            DispatcherTimer timer;
-            public MainWindow()
-            {
-                InitializeComponent();
-                mServer = new AsyncSocketServer();
-            }
-
-            private void btn_Ascolta_Click(object sender, RoutedEventArgs e)
-            {
-                mServer.StartListening();
-
-                mServer.StartListening();
-                timer = new DispatcherTimer();
-                timer.Interval = new TimeSpan(0, 0, 10);
-                timer.Tick += Timer_Tick;
-                timer.Start();
-            }
-
-            private void Timer_Tick(object sender, EventArgs e)
-            {
-                mServer.SendToAll("ciao");
-            }
-
-            private void btn_Disconetti_Click(object sender, RoutedEventArgs e)
-            {
-                mServer.CloseConnection();
-            }
-
-            private void btn_Invia_Click(object sender, RoutedEventArgs e)
-            {
-                mServer.SendToAll(txt_Messaggio.Text);
-            }
+            InitializeComponent();
+            mServer = new AsyncSocketServer();
+            btn_Disconetti.IsEnabled = false;
         }
+        private void btn_Ascolta_Click(object sender, RoutedEventArgs e)
+        {
+            mServer.StartListening();
+
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 10);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            btn_Ascolta.IsEnabled = false;
+            btn_Disconetti.IsEnabled = true;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            mServer.SendToAll(DateTime.Now.ToShortDateString() + " ");
+            mServer.SendToAll(DateTime.Now.ToShortTimeString());
+        }
+
+        private void btn_Disconetti_Click(object sender, RoutedEventArgs e)
+        {
+            mServer.CloseConnection();
+            btn_Ascolta.IsEnabled = false;
+
+        }
+
+        private void btn_Invia_Click(object sender, RoutedEventArgs e)
+        {
+            mServer.SendToAll(txt_Messaggio.Text);
+            
+        }
+
     }
 }
 

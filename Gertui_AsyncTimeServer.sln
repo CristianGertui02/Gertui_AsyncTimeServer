@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gertui_AsyncTimeServer", "Gertui_AsyncTimeServer\Gertui_AsyncTimeServer.csproj", "{63B45A3E-606B-43AF-B091-67EF9407A70D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gertui_SocketAsyncLib", "Gertui_AsyncTimeServerLib\Gertui_SocketAsyncLib.csproj", "{AEB2C978-9BA8-4734-8C9E-2D872B992F7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63B45A3E-606B-43AF-B091-67EF9407A70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63B45A3E-606B-43AF-B091-67EF9407A70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63B45A3E-606B-43AF-B091-67EF9407A70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63B45A3E-606B-43AF-B091-67EF9407A70D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB2C978-9BA8-4734-8C9E-2D872B992F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB2C978-9BA8-4734-8C9E-2D872B992F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB2C978-9BA8-4734-8C9E-2D872B992F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB2C978-9BA8-4734-8C9E-2D872B992F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66FE2060-1043-4FAF-9DEC-23B259EFFABB}
+	EndGlobalSection
+EndGlobal
